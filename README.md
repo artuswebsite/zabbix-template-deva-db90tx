@@ -22,3 +22,6 @@ Plantilla de Zabbix para el monitoreo mediante SNMP v1 del transmisor/encoder de
 
 ## Licencia
 MIT License - Libre para usar y modificar.
+
+## Keywords / Tags
+`zabbix-template` `deva-broadcast` `db90tx` `snmp-monitoring` `audio-ip-encoder` `lld-discovery` `zabbix-7` `radio-broadcast-monitoring`
