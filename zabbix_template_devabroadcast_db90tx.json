@@ -1,0 +1,783 @@
+{
+    "zabbix_export": {
+        "version": "7.4",
+        "template_groups": [
+            {
+                "uuid": "b28b7bcdf65d41e1bb8924270a182a62",
+                "name": "Templates/Radio"
+            }
+        ],
+        "templates": [
+            {
+                "uuid": "f3ce101f12ae4920a17515135495a384",
+                "template": "DEVABroadcast DB90TX by SNMP",
+                "name": "DEVABroadcast DB90TX by SNMP",
+                "description": "Plantilla de monitoreo SNMP para DEVA Broadcast DB90TX.\nIncluye descubrimiento de conexiones LLD, m\u00e9tricas flotantes y triggers de persistencia.\n\nAutor: Hans Ulloa Ortega\nGitHub: https://github.com/artuswebsite/zabbix-template-deva-db90tx\nVersi\u00f3n: 1.0.0",
+                "vendor": {
+				  "name": "Hans Ulloa Ortega",
+				  "version": "1.0-0"
+				},
+				"groups": [
+                    {
+                        "name": "Templates/Radio"
+                    }
+                ],
+                "items": [
+                    {
+                        "uuid": "f2c03ede54b34bc4b19fb297f0dbf066",
+                        "name": "Audio Gain IN",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.2.0",
+                        "key": "adGain",
+                        "delay": "1d",
+                        "history": "1d",
+                        "value_type": "FLOAT",
+                        "trends": "0",
+                        "units": "dB",
+                        "description": "Analog input gain in the range from -6 to +18 dB",
+                        "preprocessing": [
+                            {
+                                "type": "MULTIPLIER",
+                                "parameters": [
+                                    "0.1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5fbaed3f034d4f1880fa637a7b501844",
+                        "name": "Audio IN",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.1.0",
+                        "key": "audioIn",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "valuemap": {
+                            "name": "audioIn-values"
+                        }
+                    },
+                    {
+                        "uuid": "a56f4148da7f4c70baca3db7cd6f0c16",
+                        "name": "Bitrate",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.6.0",
+                        "key": "bitrate",
+                        "delay": "1d",
+                        "history": "15d",
+                        "trends": "0",
+                        "valuemap": {
+                            "name": "bitrate-values"
+                        }
+                    },
+                    {
+                        "uuid": "7d78cbe74dec401789a6c85580958fdc",
+                        "name": "Channels",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.3.0",
+                        "key": "channels",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "description": "Number of channels:1 or 2."
+                    },
+                    {
+                        "uuid": "5d5b6ae2902c4df787fe28cd07e960e3",
+                        "name": "CRC",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.8.0",
+                        "key": "crc",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "description": "Enable or disable CRC of the MP3 stream.",
+                        "valuemap": {
+                            "name": "crc-values"
+                        }
+                    },
+                    {
+                        "uuid": "10bfdb3f10104d66897a94cfbd4e10b8",
+                        "name": "IP Principal",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.1.1.0",
+                        "key": "deviceIpAddress",
+                        "delay": "1d",
+                        "history": "1d",
+                        "value_type": "CHAR",
+                        "description": "Device IP Address"
+                    },
+                    {
+                        "uuid": "3cf93b24185e48ec9b3342085ba0eaa9",
+                        "name": "Emphasis",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.9.0",
+                        "key": "emphasis",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "valuemap": {
+                            "name": "emphasis-value"
+                        }
+                    },
+                    {
+                        "uuid": "179c0fa42148452085c380bfa12978c2",
+                        "name": "Encoder",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.4.0",
+                        "key": "encoder",
+                        "delay": "1d",
+                        "history": "15d",
+                        "trends": "0",
+                        "valuemap": {
+                            "name": "Encoder Type"
+                        }
+                    },
+                    {
+                        "uuid": "5eb53a07b65d4ec58b2cf78a2f73fc45",
+                        "name": "Firmware Revision",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.1.3.0",
+                        "key": "fwrev",
+                        "delay": "1d",
+                        "history": "1d",
+                        "value_type": "CHAR",
+                        "description": "Device Firmware Revision"
+                    },
+                    {
+                        "uuid": "087847b756e34f7997362a6827c458f7",
+                        "name": "Audio L",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.3.1.0",
+                        "key": "getLvlL",
+                        "delay": "30s",
+                        "value_type": "FLOAT",
+                        "trends": "61d",
+                        "units": "dB",
+                        "description": "Get Channel L level [db]"
+                    },
+                    {
+                        "uuid": "bee5e9939c794f8a917564182eb1b05e",
+                        "name": "Audio R",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.3.2.0",
+                        "key": "getLvlR",
+                        "delay": "30s",
+                        "value_type": "FLOAT",
+                        "trends": "61d",
+                        "units": "dB",
+                        "description": "Get Channel R level [db]"
+                    },
+                    {
+                        "uuid": "3fdbff7455054d4c9aeac481ce4e53f3",
+                        "name": "ICMP ping",
+                        "type": "SIMPLE",
+                        "key": "icmpping",
+                        "valuemap": {
+                            "name": "Service state"
+                        },
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "health"
+                            },
+                            {
+                                "tag": "component",
+                                "value": "network"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "a92288b2468341d6b387d195aa2c2851",
+                                "expression": "max(/DEVABroadcast DB90TX by SNMP/icmpping,#3)=0",
+                                "name": "Unavailable by ICMP ping",
+                                "priority": "HIGH",
+                                "description": "Last three attempts returned timeout.  Please check device connectivity.",
+                                "tags": [
+                                    {
+                                        "tag": "scope",
+                                        "value": "availability"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6eb13fcf4eaa43219ad578370305e215",
+                        "name": "ICMP loss",
+                        "type": "SIMPLE",
+                        "key": "icmppingloss",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "health"
+                            },
+                            {
+                                "tag": "component",
+                                "value": "network"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "78315a47a61e4d689d6fa23493da1611",
+                                "expression": "min(/DEVABroadcast DB90TX by SNMP/icmppingloss,5m)>{$ICMP_LOSS_WARN} and min(/DEVABroadcast DB90TX by SNMP/icmppingloss,5m) < 100",
+                                "name": "High ICMP ping loss",
+                                "opdata": "Loss: {ITEM.LASTVALUE1}",
+                                "priority": "WARNING",
+                                "description": "Last three attempts returned timeout.  Please check device connectivity.",
+                                "dependencies": [
+                                    {
+                                        "name": "Unavailable by ICMP ping",
+                                        "expression": "max(/DEVABroadcast DB90TX by SNMP/icmpping,#3)=0"
+                                    }
+                                ],
+                                "tags": [
+                                    {
+                                        "tag": "scope",
+                                        "value": "availability"
+                                    },
+                                    {
+                                        "tag": "scope",
+                                        "value": "performance"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "82949694dcbe4f9a96feec3a862c7353",
+                        "name": "ICMP response time",
+                        "type": "SIMPLE",
+                        "key": "icmppingsec",
+                        "value_type": "FLOAT",
+                        "units": "s",
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "health"
+                            },
+                            {
+                                "tag": "component",
+                                "value": "network"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d1350b3e1df04692a89d11e5523aabea",
+                                "expression": "avg(/DEVABroadcast DB90TX by SNMP/icmppingsec,5m)>{$ICMP_RESPONSE_TIME_WARN}",
+                                "name": "High ICMP ping response time",
+                                "opdata": "Value: {ITEM.LASTVALUE1}",
+                                "priority": "WARNING",
+                                "description": "Average ICMP response time is too high.",
+                                "dependencies": [
+                                    {
+                                        "name": "High ICMP ping loss",
+                                        "expression": "min(/DEVABroadcast DB90TX by SNMP/icmppingloss,5m)>{$ICMP_LOSS_WARN} and min(/DEVABroadcast DB90TX by SNMP/icmppingloss,5m) < 100"
+                                    },
+                                    {
+                                        "name": "Unavailable by ICMP ping",
+                                        "expression": "max(/DEVABroadcast DB90TX by SNMP/icmpping,#3)=0"
+                                    }
+                                ],
+                                "tags": [
+                                    {
+                                        "tag": "scope",
+                                        "value": "availability"
+                                    },
+                                    {
+                                        "tag": "scope",
+                                        "value": "performance"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "78d804f759bc425a857fa9ebc0acb771",
+                        "name": "Stream Conexiones Maximas",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.13.0",
+                        "key": "maxConnections",
+                        "delay": "1d",
+                        "history": "15d",
+                        "trends": "0",
+                        "description": "Max number of concurent connections to the server."
+                    },
+                    {
+                        "uuid": "5dc24bb8b843492e91781219b069b95d",
+                        "name": "Stream Pre Buffer",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.12.0",
+                        "key": "preBuffer",
+                        "delay": "1d",
+                        "history": "15d",
+                        "trends": "0",
+                        "units": "k",
+                        "description": "[kbps] This option selects the amount of data sent to the client on connect. This will have the effect of reducing the startup time of the client."
+                    },
+                    {
+                        "uuid": "459c279098f84dbabb261054f550f180",
+                        "name": "Frecuencia de Muestreo",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.5.0",
+                        "key": "samplerate",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "units": "Hz"
+                    },
+                    {
+                        "uuid": "303686e65e2b4c9fbc339b0147151731",
+                        "name": "Numero de Serie",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.1.2.0",
+                        "key": "sernum",
+                        "delay": "1d",
+                        "history": "1d",
+                        "value_type": "CHAR",
+                        "description": "Device Serial Number"
+                    },
+                    {
+                        "uuid": "d1708fdcb5e840589e35aba77ecc42ad",
+                        "name": "Modo Stereo",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.7.0",
+                        "key": "stereoMode",
+                        "delay": "1d",
+                        "history": "1d",
+                        "trends": "0",
+                        "description": "Stereo, Joint Stereo or Dual Channel. Note:This parameter applies only to MP3 stream.",
+                        "valuemap": {
+                            "name": "stereoMode-values"
+                        }
+                    },
+                    {
+                        "uuid": "26c686d679a9485fb486e13ab10a0f75",
+                        "name": "Stream Nombre",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.10.0",
+                        "key": "streamName",
+                        "delay": "1d",
+                        "history": "15d",
+                        "value_type": "CHAR",
+                        "description": "Name of the device. Displayed as name of the stream."
+                    },
+                    {
+                        "uuid": "d2e9f1abdbe34e04bc8b682136ddcf59",
+                        "name": "Stream Puerto",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.4.1.35833.8.2.4.11.0",
+                        "key": "streamPort",
+                        "delay": "1d",
+                        "history": "15d",
+                        "trends": "0"
+                    },
+                    {
+                        "uuid": "d8d9a6efaf784d87a6a001865edb563a",
+                        "name": "System object ID",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": "1.3.6.1.2.1.1.2.0",
+                        "key": "system.objectid",
+                        "delay": "15m",
+                        "value_type": "CHAR",
+                        "description": "MIB: SNMPv2-MIB\nThe vendor's authoritative identification of the network management subsystem contained in the entity.  This value is allocated within the SMI enterprises subtree (1.3.6.1.4.1) and provides an easy and unambiguous means for determining`what kind of box' is being managed.  For example, if vendor`Flintstones, Inc.' was assigned the subtree1.3.6.1.4.1.4242, it could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router'.",
+                        "preprocessing": [
+                            {
+                                "type": "DISCARD_UNCHANGED_HEARTBEAT",
+                                "parameters": [
+                                    "12h"
+                                ]
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "system"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "744b5bfbe681480cb406ecc0d6a49d2d",
+                        "name": "Uptime",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": ".1.3.6.1.2.1.1.3.0",
+                        "key": "sysUpTime",
+                        "units": "uptime",
+                        "preprocessing": [
+                            {
+                                "type": "MULTIPLIER",
+                                "parameters": [
+                                    "0.01"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9185ce50a6874cb98383a1bb9ca045ef",
+                        "name": "SNMP agent availability",
+                        "type": "INTERNAL",
+                        "key": "zabbix[host,snmp,available]",
+                        "description": "Availability of SNMP checks on the host. The value of this item corresponds to availability icons in the host list.\nPossible values:\n0 - not available\n1 - available\n2 - unknown",
+                        "valuemap": {
+                            "name": "zabbix.host.available"
+                        },
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "health"
+                            },
+                            {
+                                "tag": "component",
+                                "value": "network"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "05a43de3b287403799263c2df35c1b95",
+                                "expression": "max(/DEVABroadcast DB90TX by SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0",
+                                "name": "No SNMP data collection",
+                                "opdata": "Current state: {ITEM.LASTVALUE1}",
+                                "priority": "WARNING",
+                                "description": "SNMP is not available for polling. Please check device connectivity and SNMP settings.",
+                                "dependencies": [
+                                    {
+                                        "name": "Unavailable by ICMP ping",
+                                        "expression": "max(/DEVABroadcast DB90TX by SNMP/icmpping,#3)=0"
+                                    }
+                                ],
+                                "tags": [
+                                    {
+                                        "tag": "scope",
+                                        "value": "availability"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "discovery_rules": [
+                    {
+                        "uuid": "eb87208a43f5412e93224e892cd30e10",
+                        "name": "Descubrimiento de Conexiones Stream",
+                        "type": "SNMP_AGENT",
+                        "snmp_oid": "discovery[{#SNMPVALUE}, .1.3.6.1.4.1.35833.8.3.3.1.1]",
+                        "key": "stream.entry.discovery",
+                        "delay": "1h",
+                        "item_prototypes": [
+                            {
+                                "uuid": "e089ae9165aa4c44a9ff604bc43095d1",
+                                "name": "Conexi\u00f3n {#SNMPINDEX}: Estado Activo",
+                                "type": "SNMP_AGENT",
+                                "snmp_oid": ".1.3.6.1.4.1.35833.8.3.3.1.2.{#SNMPINDEX}",
+                                "key": "stream.active[{#SNMPINDEX}]",
+                                "valuemap": {
+                                    "name": "stream-active-value"
+                                },
+                                "trigger_prototypes": [
+                                    {
+                                        "uuid": "a00962ae389f4d518f3c6b66fd7f22fa",
+                                        "expression": "max(/DEVABroadcast DB90TX by SNMP/stream.active[{#SNMPINDEX}],3m)=0",
+                                        "recovery_mode": "RECOVERY_EXPRESSION",
+                                        "recovery_expression": "last(/DEVABroadcast DB90TX by SNMP/stream.active[{#SNMPINDEX}])=1",
+                                        "name": "Conexi\u00f3n {#SNMPINDEX} caida (IP: {ITEM.LASTVALUE2})",
+                                        "priority": "WARNING",
+                                        "manual_close": "YES"
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "c1627cfa5f044a268e1df9ffbc1a60cb",
+                                "name": "Conexi\u00f3n {#SNMPINDEX}: IP del Cliente",
+                                "type": "SNMP_AGENT",
+                                "snmp_oid": ".1.3.6.1.4.1.35833.8.3.3.1.3.{#SNMPINDEX}",
+                                "key": "stream.clientIP[{#SNMPINDEX}]",
+                                "value_type": "CHAR"
+                            },
+                            {
+                                "uuid": "fe4160e72fa64f2287c59f256c3453a5",
+                                "name": "Conexi\u00f3n {#SNMPINDEX}: Puerto Cliente",
+                                "type": "SNMP_AGENT",
+                                "snmp_oid": ".1.3.6.1.4.1.35833.8.3.3.1.4.{#SNMPINDEX}",
+                                "key": "stream.clientPORT[{#SNMPINDEX}]"
+                            },
+                            {
+                                "uuid": "b31d49f4346b4ede9a4cd513faab7148",
+                                "name": "Conexi\u00f3n {#SNMPINDEX}: Tiempo de Conexi\u00f3n",
+                                "type": "SNMP_AGENT",
+                                "snmp_oid": ".1.3.6.1.4.1.35833.8.3.3.1.5.{#SNMPINDEX}",
+                                "key": "stream.clientTIME[{#SNMPINDEX}]",
+                                "units": "s",
+                                "trigger_prototypes": [
+                                    {
+                                        "uuid": "5d31350d634b48388d24f30914c26bc1",
+                                        "expression": "change(/DEVABroadcast DB90TX by SNMP/stream.clientTIME[{#SNMPINDEX}]) < 0",
+                                        "recovery_mode": "RECOVERY_EXPRESSION",
+                                        "recovery_expression": "(now() - last(/DEVABroadcast DB90TX by SNMP/stream.clientTIME[{#SNMPINDEX}],#1)) >= 259200",
+                                        "name": "Conexi\u00f3n {#SNMPINDEX} reiniciada / reconectada (IP: {ITEM.LASTVALUE2})",
+                                        "priority": "INFO",
+                                        "manual_close": "YES"
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "b5a075f30acd42a684a178c75294394f",
+                                "name": "Conexi\u00f3n {#SNMPINDEX}: N\u00famero",
+                                "type": "SNMP_AGENT",
+                                "snmp_oid": ".1.3.6.1.4.1.35833.8.3.3.1.1.{#SNMPINDEX}",
+                                "key": "stream.connectionNumber[{#SNMPINDEX}]"
+                            }
+                        ]
+                    }
+                ],
+                "tags": [
+                    {
+                        "tag": "class",
+                        "value": "hardware"
+                    },
+                    {
+                        "tag": "class",
+                        "value": "IP-Audio"
+                    },
+                    {
+                        "tag": "target",
+                        "value": "DB90TX"
+                    },
+                    {
+                        "tag": "target",
+                        "value": "DEVA"
+                    },
+                    {
+                        "tag": "target",
+                        "value": "IP-Audio TX"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$ICMP_LOSS_WARN}",
+                        "value": "20",
+                        "description": "Warning threshold of ICMP packet loss in %."
+                    },
+                    {
+                        "macro": "{$ICMP_RESPONSE_TIME_WARN}",
+                        "value": "0.15",
+                        "description": "Warning threshold of the average ICMP response time in seconds."
+                    },
+                    {
+                        "macro": "{$SNMP.TIMEOUT}",
+                        "value": "5m",
+                        "description": "Time interval for the SNMP availability trigger."
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "public",
+                        "description": "comunidad por defecto"
+                    }
+                ],
+                "valuemaps": [
+                    {
+                        "uuid": "1ee343604bfa439a973d8cf2547c8885",
+                        "name": "audioIn-values",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "Analogo"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "Digital SPDIF"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "071c364a11524daab09691146274b150",
+                        "name": "bitrate-values",
+                        "mappings": [
+                            {
+                                "value": "1",
+                                "newvalue": "64kbps (MP3)"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "96kbps (MP3)"
+                            },
+                            {
+                                "value": "3",
+                                "newvalue": "128kbps (MP3)"
+                            },
+                            {
+                                "value": "4",
+                                "newvalue": "192kbps (MP3)"
+                            },
+                            {
+                                "value": "5",
+                                "newvalue": "256kbps (MP3)"
+                            },
+                            {
+                                "value": "6",
+                                "newvalue": "320kbps (MP3)"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "fdd62d3499774280a605b01d861af989",
+                        "name": "crc-values",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "Encendido"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "Apagado"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c29ea1927acb4113b9305e7645774b56",
+                        "name": "emphasis-value",
+                        "mappings": [
+                            {
+                                "value": "1",
+                                "newvalue": "NO"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "50 us"
+                            },
+                            {
+                                "value": "3",
+                                "newvalue": "CCITT J.17"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6d1907a57227403ca0bd7f880f6bc68d",
+                        "name": "Encoder Type",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "PCM 16 Bits (uncompressed)"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "MPEG1 Layer 3 (MP3)"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "HE-AAC v1 (AAC-LC +SBR)"
+                            },
+                            {
+                                "value": "3",
+                                "newvalue": "HE-AAC v2 (AAC-LC +SBR +PS)"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d5a19a67002946c7b1927aa0c8b20d7a",
+                        "name": "Loss-Value",
+                        "mappings": [
+                            {
+                                "value": "1",
+                                "newvalue": "No reportado"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "Reportado"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "3b1eebc7aed4408f9b09b4f459184fa3",
+                        "name": "Service state",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "Down"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "Up"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b8b9e9fd710f4bb88938fdf4499d5bae",
+                        "name": "stereoMode-values",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "Stereo"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "Join Stereo"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "Dual Channel"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "cb796b53a4644027b6d45519b12e36c8",
+                        "name": "stream-active-value",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "No"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "Si"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a99b5aa368ba4f85b3cbbaf5960a2767",
+                        "name": "zabbix.host.available",
+                        "mappings": [
+                            {
+                                "value": "0",
+                                "newvalue": "not available"
+                            },
+                            {
+                                "value": "1",
+                                "newvalue": "available"
+                            },
+                            {
+                                "value": "2",
+                                "newvalue": "unknown"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "graphs": [
+            {
+                "uuid": "bf7de9b327ba4b78a31bab290f5d8844",
+                "name": "Audio Master",
+                "graph_items": [
+                    {
+                        "color": "00FF00",
+                        "calc_fnc": "ALL",
+                        "item": {
+                            "host": "DEVABroadcast DB90TX by SNMP",
+                            "key": "getLvlL"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "FF0000",
+                        "calc_fnc": "ALL",
+                        "item": {
+                            "host": "DEVABroadcast DB90TX by SNMP",
+                            "key": "getLvlR"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
